@@ -9,9 +9,34 @@ Django is a web-framework written in Python and runs the backend for many of the
 
 Reference code
 
-### Recommended Experience
+### Usage
 
-- [Basic HTML / CSS](https://www.codingforentrepreneurs.com/projects/getting-started-html-css/)
-- Python experience such as [30 Days of Python](https://www.codingforentrepreneurs.com/projects/30-days-python-38)
+- Initialize the project:
 
-### Coming Soon
+``` bash
+python3 -m venv .
+```
+
+- Activate the virtual environment:
+
+``` bash
+source bin/activate
+```
+
+- Install collected package from requirements.txt:
+
+``` bash
+pip install -r requirements.txt
+```
+
+- Run migrate to create databases table
+
+``` bash
+python manage.py migrate
+```
+
+- Run python web server
+
+``` bash
+python manage.py runserver
+```
