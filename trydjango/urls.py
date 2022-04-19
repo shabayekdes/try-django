@@ -18,7 +18,8 @@ from django.urls import path
 
 # Account routes
 from accounts.views import (
-    login_view
+    login_view,
+    logout_view
 )
 # Article routes
 from articles.views import (
@@ -35,4 +36,5 @@ urlpatterns = [
     path('articles/<int:id>/', articles_view),
     path('admin/', admin.site.urls),
     path('login/', login_view),
+    path('logout/', logout_view),
 ]
