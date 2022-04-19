@@ -16,13 +16,23 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from articles import views
+# Account routes
+from accounts.views import (
+    login_view
+)
+# Article routes
+from articles.views import (
+    articles_search,
+    articles_create,
+    articles_view
+)
 from .views import home_view
 
 urlpatterns = [
     path('', home_view),
-    path('articles/', views.articles_search),
-    path('articles/create/', views.articles_create),
-    path('articles/<int:id>/', views.articles_view),
+    path('articles/', articles_search),
+    path('articles/create/', articles_create),
+    path('articles/<int:id>/', articles_view),
     path('admin/', admin.site.urls),
+    path('login/', login_view),
 ]
