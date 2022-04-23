@@ -20,20 +20,17 @@ def home_view(request):
     # Remove comment below to create data in model
     # Article.objects.create(title='Hello World Again', content='This is awesome')
 
-    name = "Shabayek"
-    random_id = random.randint(1, 4) # pseudo random
+    # name = "Shabayek"
+    # random_id = random.randint(1, 4) # pseudo random
 
     # fetch one by id
-    article_obj = Article.objects.get(id=random_id)
+    # article_obj = Article.objects.get(id=random_id)
     # fetch all articles
     articles = Article.objects.all()
 
     # context will be passed to view
     context = {
-        'articles': articles,
-        'id': article_obj.id,
-        'title': article_obj.title,
-        'content': article_obj.content,
+        'articles': articles
     }
 
     # Django Templates

@@ -42,6 +42,8 @@ class Article(models.Model):
 
 #### Writing
 ```python
+from articles.models import Article
+
 obj = Article(title='Hello World', content='This is awesome')
 obj.save()
 print(obj.id)
@@ -49,6 +51,8 @@ print(obj.id)
 or
 
 ```python
+from articles.models import Article
+
 obj2 = Article.objects.create(title='Hello World Again', content='This is awesome')
 print(obj2.id)
 ```
