@@ -18,6 +18,9 @@ class Article(models.Model):
         # if self.slug is None:
         #     self.slug = slugify(self.title)
         super().save(*args, **kwargs)
+        
+    def get_absolute_url(self):
+        return f'/articles/{self.slug}/'
 
 def article_pre_save(sender, instance, *args, **kwargs):
     if instance.slug is None:
