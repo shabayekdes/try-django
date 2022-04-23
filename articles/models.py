@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from django.urls import reverse
 from django.db.models.signals import pre_save, post_save
 
 from .utils import slugify_instance_title
@@ -18,9 +19,11 @@ class Article(models.Model):
         # if self.slug is None:
         #     self.slug = slugify(self.title)
         super().save(*args, **kwargs)
-        
+
     def get_absolute_url(self):
-        return f'/articles/{self.slug}/'
+        # return f'/articles/{self.slug}/'
+        return reverse("article-detail", kwargs={"slug": self.slug})
+
 
 def article_pre_save(sender, instance, *args, **kwargs):
     if instance.slug is None:

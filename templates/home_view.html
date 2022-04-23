@@ -3,6 +3,8 @@
 {% block content %}
     <h1>{{ title }} (id: {{ id }})!</h1>
     <p>{{ content }}!</p>
+    
+    <a href='{% url "article-create" %}'>Create Article</a>
 
     <h3>Related Article</h3>
     <ul>
