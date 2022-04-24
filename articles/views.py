@@ -1,7 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.http import Http404
 from django.shortcuts import render, redirect
-from django.db.models import Q
 
 from .models import Article
 from .forms import ArticleForm
@@ -10,12 +9,8 @@ from .forms import ArticleForm
 def articles_search(request):
     # query dictionary from get request
     query = request.GET.get('q')
+    articles = Article.objects.search(query=query)
 
-    article = None
-    # if query is not None:
-    if query is not None:
-        lookups = Q(title__icontains=query) | Q(content__icontains=query)
-        articles = Article.objects.filter(lookups)
     context = {
         'articles': articles,
     }
