@@ -3,8 +3,12 @@ from django.utils import timezone
 from django.urls import reverse
 from django.db.models import Q
 from django.db.models.signals import pre_save, post_save
+from django.conf import settings
 
 from .utils import slugify_instance_title
+
+User = settings.AUTH_USER_MODEL
+
 # Create your models here.
 class ArticleQuerySet(models.QuerySet):
     def search(self, query=None):
@@ -23,6 +27,7 @@ class ArticleManager(models.Manager):
 class Article(models.Model):
     # https://docs.djangoproject.com/en/3.2/ref/models/fields/#model-field-types
     # Django model-field-types
+    user = models.ForeignKey(User, blank=True, null=True, on_delete=models.SET_NULL)
     title = models.CharField(max_length=120)
     content = models.TextField()
     slug = models.SlugField(unique=True, blank=True, null=True)

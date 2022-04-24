@@ -2,6 +2,7 @@
 
 {% block content %}
     <h1>{{ article.title }} (id: {{ article.id }})!</h1>
+    <p>Author {{ article.user.username }}
     <p>{{ article.content }}!</p>
 
 {% endblock content %}
