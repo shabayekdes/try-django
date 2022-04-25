@@ -6,7 +6,7 @@ from .models import Article
 from .forms import ArticleForm
 
 # Create your views here.
-def articles_search(request):
+def article_search_view(request):
     # query dictionary from get request
     query = request.GET.get('q')
     articles = Article.objects.search(query=query)
@@ -17,7 +17,7 @@ def articles_search(request):
     return render(request, 'articles/search.html', context=context)
 
 @login_required
-def articles_create(request):
+def article_create_view(request):
     # print(request.POST)
     form = ArticleForm(request.POST or None)
     context = {

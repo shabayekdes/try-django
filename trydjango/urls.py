@@ -22,12 +22,6 @@ from accounts.views import (
     register_view,
     logout_view
 )
-# Article routes
-from articles.views import (
-    articles_search,
-    articles_create,
-    article_detail_view
-)
 from .views import home_view
 
 urlpatterns = [
