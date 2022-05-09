@@ -36,6 +36,10 @@ class Article(models.Model):
     published_at = models.DateField(auto_now_add=False, auto_now=False, null=True, blank=True)
     
     objects=ArticleManager()
+
+    @property
+    def name(self):
+        return self.title
     
     def get_absolute_url(self):
         # return f'/articles/{self.slug}/'
