@@ -165,6 +165,8 @@ STATICFILES_DIRS = [
 
 STATIC_ROOT = BASE_DIR / "staticfiles-cdn" # in production, we want cdn
 
+MEDIA_ROOT = BASE_DIR / "staticfiles-cdn" / "uploads"
+
 # from .cdn.conf import * # noqa REMOVE this in production if you want to use CDN
 
 # Default primary key field type
