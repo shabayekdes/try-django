@@ -8,3 +8,6 @@ django-storages
 boto3
 pillow
 requests
+djangorestframework
+pyyaml
+django-cors-headers
