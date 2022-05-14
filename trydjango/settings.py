@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     # third-party
     'django_htmx',
     'storages',
+    'rest_framework',
     # internal
     'articles',
     'meals',
