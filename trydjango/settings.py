@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django_htmx',
     'storages',
     'rest_framework',
+    'rest_framework.authtoken',
     # internal
     'articles',
     'meals',
