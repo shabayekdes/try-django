@@ -37,5 +37,6 @@ urlpatterns = [
     path('login/', login_view),
     path('logout/', logout_view),
     path('register/', register_view),
-    path('api/', include('api.urls'))
+    path('api/', include('api.urls')),
+    path('api/v2/', include('trydjango.routers'))
 ]
