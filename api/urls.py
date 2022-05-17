@@ -8,5 +8,6 @@ from .views import (
 urlpatterns = [
     path('auth/', obtain_auth_token),
     path('', api_home), # localhost:8000/api/
+    path('search/', include('search.urls')),
     path('products/', include('products.urls'))
 ]
