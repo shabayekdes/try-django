@@ -6,7 +6,7 @@ from .views import (
     article_detail_view
 )
 
-app_name = 'articles'
+# app_name = 'articles'
 urlpatterns = [
     path('', article_search_view, name='search'),
     path('create/', article_create_view, name='create'),
