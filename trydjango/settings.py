@@ -126,7 +126,33 @@ if POSTGRES_READY:
         }
     }
 
+# Install mysql driver https://pypi.org/project/mysqlclient/
+# pip install mysqlclient
+MYSQL_DB = os.environ.get("MYSQL_DB") #database name
+MYSQL_PASSWORD = os.environ.get("MYSQL_PASSWORD") # database user password
+MYSQL_USER = os.environ.get("MYSQL_USER") # database username
+MYSQL_HOST = os.environ.get("MYSQL_HOST") # database host
+MYSQL_PORT = os.environ.get("MYSQL_PORT") # database port
 
+MYSQL_READY = (
+    MYSQL_DB is not None
+    and MYSQL_PASSWORD is not None
+    and MYSQL_USER is not None
+    and MYSQL_HOST is not None
+    and MYSQL_PORT is not None
+)
+
+if MYSQL_READY:
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.mysql",
+            "NAME": MYSQL_DB,
+            "USER": MYSQL_USER,
+            "PASSWORD": MYSQL_PASSWORD,
+            "HOST": MYSQL_HOST,
+            "PORT": MYSQL_PORT,
+        }
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
