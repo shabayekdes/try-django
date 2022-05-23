@@ -4,6 +4,8 @@ from django.shortcuts import render, redirect
 
 from .models import Article
 from .forms import ArticleForm
+from rest_framework import generics
+from .serializers import ArticleSerializer
 
 # Create your views here.
 def article_search_view(request):
@@ -46,3 +48,12 @@ def article_detail_view(request, slug=None):
         'article': article_obj,
     }
     return render(request, 'articles/view.html', context=context)
+
+
+class ArticleListView(generics.ListAPIView):
+    queryset = Article.objects.public()
+    serializer_class = ArticleSerializer
+
+class ArticleDetailView(generics.RetrieveAPIView):
+    queryset = Article.objects.public()
+    serializer_class = ArticleSerializer
